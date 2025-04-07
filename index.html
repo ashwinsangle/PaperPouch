@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-Bottom Paper</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    @media (max-width: 480px) {
+      .navbar-toggler {
+        margin-right: 0; /* Remove extra margin */
+      }
+  
+      .container-fluid {
+        padding-left: 10px;
+        padding-right: 10px;
+
+      }
+     .navbar-collapse {
+       margin: 0;
+     }
+     #about{
+      padding: 0;
+     }
+     #product{
+      padding: 0;
+     }
+      .navbar-brand {
+        font-size: 1.2rem; /* Reduce font size if needed */
+      }
+      .navbar-toggler {
+  max-width: 100%;
+  margin-left: 2rem;
+  overflow: hidden;
+}
+#asd{
+  width: auto;
+}
+.navbar{
+  max-width: 480px;
+}
+.orl{
+  display: none;
+}
+.car{
+  height: 40vh;
+}
+    }
+  </style>
+  <style>
+    .carousel-inner img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+  
+    @media (max-width: 480px) {
+      .carousel-inner img {
+        height: 250px; /* or adjust based on your design */
+      }
+    }
+  </style>
+
+<!-- New Filter CSS -->
+  <style>
+    
+    .filter-buttons {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .filter-buttons button {
+      margin: 5px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      background: #1e5631;
+      color: white;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .filter-buttons button.active,
+    .filter-buttons button:hover {
+      background: #145123;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 30px;
+      padding: 0 20px;
+      margin-bottom: 50px;
+    }
+
+    .product-card {
+      background: #eaeaea;
+      height: 230px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #555;
+      font-size: 18px;
+      font-weight: 500;
+      border-radius: 8px;
+      transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .product-card:hover {
+      transform: scale(1.03);
+    }
+
+    .product-card.hide {
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(0.95);
+      pointer-events: none;
+    }
+
+    .load-more {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .load-more-btn {
+      padding: 10px 25px;
+      font-size: 16px;
+      background: #1e5631;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .load-more-btn:hover {
+      background: #145123;
+    }
+  </style>
+  <!-- Font Awesome Free CDN -->
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top"  >
+    
+
+      
+        <div class="container-fluid mx-3 "id="asd" >
+          <a class="navbar-brand fs-4" style="  color:#3D6D4D ;" href="#">SS Enterprises</a>
+          <button  class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse " id="navbarSupportedContent">
+            <ul class="navbar-nav  mx-1 mb-lg-0">
+              <li class="nav-item   mx-3 ">
+                <a class="nav-link " aria-current="page" href="#">HOME</a>
+              </li>
+              <li class="nav-item   mx-3 ">
+                <a class="nav-link" href="#about">About Us</a>
+              </li>
+              <li class="nav-item   mx-3 ">
+                <a class="nav-link " aria-current="page" href="#product">Products</a>
+              </li>
+            
+              <li class="nav-item   mx-3 ">
+                <a class="nav-link " aria-current="page" href="#cer">Certifications</a>
+              </li>
+              
+              <li class="nav-item   mx-3 ">
+                <a class="nav-link " aria-current="page" href="#gallery">Gallery</a>
+              </li>
+              <li class="nav-item   mx-3 ">
+                <a class="nav-link" href="#contact">Contact Us</a>
+              </li>
+            </ul>
+            
+          </div>
+        </div>
+              
+      </nav>
+
+     
+      <div class="position-relative overflow-hidden car " style="height: 100vh;">
+        <!-- Background Carousel -->
+        <div id="productCarousel" class="carousel slide h-100 w-100 mt-5" data-bs-ride="carousel" data-bs-interval="3000">
+          <div class="carousel-inner h-100">
+            <div class="carousel-item active h-100">
+              <img src="slider1.jpg" class="d-block w-100 h-100 object-fit-cover " alt="Pouch 1" />
+            </div>
+            <div class="carousel-item h-100">
+              <img src="slider2.jpg" class="d-block w-100 h-100 object-fit-cover " alt="Pouch 2" />
+            </div>
+            <div class="carousel-item h-100">
+              <img src="slider4.jpg" class="d-block w-100 h-100  " alt="Pouch 3" />
+            </div>
+          </div>
+      
+       
+        </div>
+      
+        <!-- Fixed Left Content Overlay -->
+        <div class="position-absolute top-0 start-0 h-100 d-flex align-items-center" style="width: 100%; background: rgba(0,0,0,0.5); padding: 3rem; color: white;">
+          <div class="w-100">
+            <h1>Premium V-Bottom Paper Pouches</h1>
+            <p class="description">Food-grade packaging solutions for supermarkets, sweet marts, fruit exports,bakery products, etc.</p>
+            <div class="buttons mb-3">
+              <button class="btn btn-secondary me-2">Our Products</button>
+              <button class="btn btn-primary">Get a Quote</button>
+            </div>
+            <div class="features mt-3">
+              <span>✔️ Food-grade certified</span><br />
+              <span>✔️ In-house printing</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+<!-- About Section Start -->
+<section id="about" class="about-section " style="background-color: #f7f3eb;">
+    <div  class="container">
+      <div class="text-center mb-5 row">
+        <h2 class="fw-bold" style="color: #1e5631;">About Our Company</h2>
+        <p class="text-muted fs-5">Delivering premium quality V-bottom paper pouches for food packaging with a commitment to safety, quality, and sustainability.</p>
+      </div>
+  
+      <div class="row g-4">
+        <!-- Left block -->
+        <div class="col-12 col-md-6 d-flex flex-column gap-4">
+
+          <img src="prod5.jpg" alt="">
+          </div>
+
+         
+        
+  
+        <!-- Right blocks -->
+        <div class="col-12 col-md-6 d-flex flex-column gap-4">
+
+          <div class="bg-white p-4 rounded shadow-sm">
+            <h5 class="fw-bold" style="color: #1e5631;">Our Mission</h5>
+            <p>To provide sustainable, food-safe packaging solutions that meet the highest quality standards while helping our clients present their products in the best possible way.</p>
+          </div>
+          <div class="bg-white p-4 rounded shadow-sm border-start border-5 border-success">
+            <h5 class="fw-bold" style="color: #1e5631;">Our Vision</h5>
+            <p>To become the leading manufacturer of eco-friendly paper packaging solutions, known for innovation, quality, and customer satisfaction.</p>
+          </div>
+          <div class="d-flex gap-3">
+            <div class="bg-white p-4 rounded shadow-sm flex-fill text-center">
+              <div class="mb-2"><img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" width="40" alt="QA"></div>
+              <h6 class="fw-bold" style="color: #1e5631;">Quality Assurance</h6>
+              <p class="mb-0 small">Rigorous testing ensures our products meet the highest standards</p>
+            </div>
+            <div class="bg-white p-4 rounded shadow-sm flex-fill text-center">
+              <div class="mb-2"><img src="https://cdn-icons-png.flaticon.com/512/3064/3064197.png" width="40" alt="Custom"></div>
+              <h6 class="fw-bold" style="color: #1e5631;">Custom Solutions</h6>
+              <p class="mb-0 small">Tailored packaging to meet your specific requirements</p>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+     <!-- Why Choose Us -->
+<div class="text-center my-5 row">
+  <h3 class="fw-bold" style="color: #1e5631;">Why Choose Us?</h3>
+</div>
+
+<div class="row justify-content-center g-4 text-center">
+  <div class="col-sm-6 col-md-3">
+    <div class="bg-white p-4 rounded shadow-sm h-100">
+      <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" width="40" alt="Food Grade">
+      <h6 class="fw-bold mt-3" style="color: #1e5631;">Food-Grade Certified</h6>
+      <p class="small mb-0">All materials meet strict food safety standards</p>
+    </div>
+  </div>
+  <div class="col-sm-6 col-md-3">
+    <div class="bg-white p-4 rounded shadow-sm h-100">
+      <img src="https://cdn-icons-png.flaticon.com/512/3523/3523063.png" width="40" alt="Custom Printing">
+      <h6 class="fw-bold mt-3" style="color: #1e5631;">Custom Printing</h6>
+      <p class="small mb-0">In-house 2-color printing for personalized branding</p>
+    </div>
+  </div>
+  <div class="col-sm-6 col-md-3">
+    <div class="bg-white p-4 rounded shadow-sm h-100">
+      <img src="https://cdn-icons-png.flaticon.com/512/2099/2099190.png" width="40" alt="Quick Turnaround">
+      <h6 class="fw-bold mt-3" style="color: #1e5631;">Quick Turnaround</h6>
+      <p class="small mb-0">Fast production and delivery to meet deadlines</p>
+    </div>
+  </div>
+  <div class="col-sm-6 col-md-3">
+    <div class="bg-white p-4 rounded shadow-sm h-100">
+      <img src="https://cdn-icons-png.flaticon.com/512/1049/1049330.png" width="40" alt="Eco-Friendly">
+      <h6 class="fw-bold mt-3" style="color: #1e5631;">Eco-Friendly</h6>
+      <p class="small mb-0">Sustainable materials for environmentally conscious packaging</p>
+    </div>
+  </div>
+</div>
+
+    </div>
+  </section>
+  <!-- About Section End -->
+  <section class="" style="background: #f7f7f7;">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h4 class="fw-bold" style="color: #1e5631;">Paper Used</h4>
+        <p class="text-muted">We use a variety of high-quality, durable papers tailored to your packaging needs.</p>
+      </div>
+      
+      <div class="row g-4">
+        <!-- Paper Type -->
+        <div class="col-md-4 col-sm-6">
+          <div class="bg-white shadow-sm rounded p-4 h-100 text-center">
+            <img src="oil.jpg" width="50" class="mb-3" alt="Oil Grease Resistant">
+            <h6 class="fw-bold text-success">Oil Grease Resistant</h6>
+            <p class="text-muted mb-0">Designed to resist oil and grease, perfect for food packaging.</p>
+          </div>
+        </div>
+  
+        <div class="col-md-4 col-sm-6">
+          <div class="bg-white shadow-sm rounded p-4 h-100 text-center">
+            <img src="kraft.png" width="50" class="mb-3" alt="Kraft Paper">
+            <h6 class="fw-bold text-success">Kraft Paper</h6>
+            <p class="text-muted mb-0">Eco-friendly and strong, suitable for versatile packaging needs.</p>
+          </div>
+        </div>
+  
+        <div class="col-md-4 col-sm-6">
+          <div class="bg-white shadow-sm rounded p-4 h-100 text-center">
+            <img src="virginkraft.png" width="50" class="mb-3" alt="Origin Craft">
+            <h6 class="fw-bold text-success">Virgin Craft</h6>
+            <p class="text-muted mb-0">Raw and authentic look, ideal for organic and premium products.</p>
+          </div>
+        </div>
+  
+        <div class="col-md-4 col-sm-6">
+          <div class="bg-white shadow-sm rounded p-4 h-100 text-center">
+            <img src="https://cdn-icons-png.flaticon.com/512/3313/3313907.png" width="50" class="mb-3" alt="High Opacity White">
+            <h6 class="fw-bold text-success">High Opacity White</h6>
+            <p class="text-muted mb-0">Bright white finish with excellent print quality and opacity.</p>
+          </div>
+        </div>
+  
+        <div class="col-md-4 col-sm-6">
+          <div class="bg-white shadow-sm rounded p-4 h-100 text-center">
+            <img src="https://cdn-icons-png.flaticon.com/512/443/443269.png" width="50" class="mb-3" alt="Pharmaceutical Grade">
+            <h6 class="fw-bold text-success">Pharmaceutical Grade</h6>
+            <p class="text-muted mb-0">Meets strict hygiene and safety standards for medical packaging.</p>
+          </div>
+        </div>
+  
+        <div class="col-md-4 col-sm-6">
+          <div class="bg-white shadow-sm rounded p-4 h-100 text-center">
+            <img src="https://cdn-icons-png.flaticon.com/512/3944/3944706.png" width="50" class="mb-3" alt="Solid Wrap">
+            <h6 class="fw-bold text-success">Solid Wrap</h6>
+            <p class="text-muted mb-0">Strong and durable wrapping paper for extra protection.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+
+  <!-- Product Section Start -->
+<section id="product" class=" bg-light">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold" style="color: #1e5631;">Our Product Range</h2>
+        <p class="text-muted fs-5">We specialize in high-quality V-bottom paper pouches designed for various food packaging applications with customizable printing options.</p>
+      </div>
+  
+      <div class="row g-4">
+        <!-- Product 1 -->
+        <div class="col-md-4">
+          <div class="bg-white rounded shadow-sm overflow-hidden">
+            <div class="bg-light text-center p-4 ">
+              <div class="border p-2 d-inline-block ">
+                <img src="prod.jpg" class="img-fluid" style="height: 280px; object-fit: contain;" alt="Standard V-Bottom Pouch">
+
+              </div>
+            </div>
+            <div class="p-4" style="background-color: #f7f3eb;">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <h5 class="fw-bold text-success">Standard V-Bottom Pouch</h5>
+                <span class="badge bg-success">Popular</span>
+              </div>
+              <p>Our standard V-bottom paper pouches are perfect for packaging dry foods, confectionery, and baked goods.</p>
+              <ul class="list-unstyled">
+                <li>✔️ Food-grade certified</li>
+                <li>✔️ Custom sizes available</li>
+                <li>✔️ 2-color custom printing</li>
+              </ul>
+              <a href="#" class="btn btn-success w-100">Request Quote</a>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Product 2 -->
+        <div class="col-md-4">
+          <div class="bg-white rounded shadow-sm overflow-hidden">
+            <div class="bg-light text-center p-4">
+              <div class="border p-2 d-inline-block">
+                <img src="prod2.jpg" class="img-fluid" alt="Export Grade Pouches">
+              </div>
+            </div>
+            <div class="p-4" style="background-color: #f7f3eb;">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <h5 class="fw-bold text-success">Export Grade Pouches</h5>
+                <span class="badge bg-light text-muted">Premium</span>
+              </div>
+              <p>Specially designed for grape exporters and other fruit packaging needs with moisture resistance.</p>
+              <ul class="list-unstyled">
+                <li>✔️ Export quality certified</li>
+                <li>✔️ Moisture resistant coating</li>
+                <li>✔️ High durability for shipping</li>
+              </ul>
+              <a href="#" class="btn btn-success w-100">Request Quote</a>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Product 3 -->
+        <div class="col-md-4">
+          <div class="bg-white rounded shadow-sm overflow-hidden">
+            <div class="bg-light text-center p-4">
+              <div class="border p-2 d-inline-block">
+                <img src="prod3.jpg" class="img-fluid" alt="Sweet Mart Pouches">
+              </div>
+            </div>
+            <div class="p-4" style="background-color: #f7f3eb;">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <h5 class="fw-bold text-success">Sweet Mart Pouches</h5>
+                <span class="badge bg-success">Bestseller</span>
+              </div>
+              <p>Specially designed for sweet shops and confectionery businesses with grease-resistant properties.</p>
+              <ul class="list-unstyled">
+                <li>✔️ Grease-resistant coating</li>
+                <li>✔️ Attractive branding options</li>
+                <li>✔️ Multiple size options</li>
+              </ul>
+              <a href="#" class="btn btn-success w-100">Request Quote</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Product Section End -->
+  <!-- Product Features Section Start -->
+   <section class="common-bg">
+    <section class="" >
+      <div class="container">
+        <!-- Customization Options -->
+        <div class="col-lg-8 col-md-10 mx-auto text-center ">
+          <div class="bg-white shadow rounded p-4 p-md-5">
+            <h4 class="fw-bold mb-4" style="color: #1e5631;">Customization Options</h4>
+    
+            <!-- Item 1 -->
+            <div class="d-flex align-items-start text-start mb-4">
+              <div class="me-3">
+                <img src="printer.png" width="40" alt="Printing" class="img-fluid">
+              </div>
+              <div>
+                <h6 class="fw-bold" style="color: #1e5631;">In-House 2-Color Printing</h6>
+                <p class="mb-0 text-muted">Our in-house printing facility offers custom 2-color printing options to showcase your brand.</p>
+              </div>
+            </div>
+    
+            <!-- Item 2 -->
+            <div class="d-flex align-items-start text-start mb-4">
+              <div class="me-3">
+                <img src="https://cdn-icons-png.flaticon.com/512/888/888879.png" width="40" alt="Custom Sizing" class="img-fluid">
+              </div>
+              <div>
+                <h6 class="fw-bold" style="color: #1e5631;">Custom Sizing</h6>
+                <p class="mb-0 text-muted">Choose from our range of standard sizes or request custom dimensions to fit your specific product needs.</p>
+              </div>
+            </div>
+    
+            <!-- Item 3 -->
+            <div class="d-flex align-items-start text-start mb-4">
+              <div class="me-3">
+                <img src="https://cdn-icons-png.flaticon.com/512/3448/3448517.png" width="40" alt="Special Coatings" class="img-fluid">
+              </div>
+              <div>
+                <h6 class="fw-bold" style="color: #1e5631;">Special Coatings</h6>
+                <p class="mb-0 text-muted">Optional coatings for moisture resistance, grease resistance, or added durability based on your product requirements.</p>
+              </div>
+            </div>
+    
+            <!-- Item 4 -->
+            <div class="d-flex align-items-start text-start">
+              <div class="me-3">
+                <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" width="40" alt="Bulk Options" class="img-fluid">
+              </div>
+              <div>
+                <h6 class="fw-bold" style="color: #1e5631;">Bulk Packaging Options</h6>
+                <p class="mb-0 text-muted">Various bulk packaging options available for efficient shipping and storage of your ordered pouches.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+  <!-- Product Features Section End -->
+
+
+  <!-- Custom Packaging Call-To-Action Start -->
+<section class=" text-center ">
+    <div class="container">
+      <h3 class="fw-bold mb-3" style="color: #1e5631;">Need Custom Packaging Solutions?</h3>
+      <p class="mb-4 fs-5 text-muted">Our team of experts can help design the perfect V-bottom paper pouch for your specific products and branding requirements.</p>
+      <div class="d-flex justify-content-center gap-3 flex-wrap">
+        <a href="#" class="btn btn-success px-4 py-2 fw-semibold">Request Custom Quote</a>
+        <a href="#" class="btn btn-outline-success px-4 py-2 fw-semibold">Learn About Our Process</a>
+      </div>
+    </div>
+  </section>
+  <!-- Custom Packaging Call-To-Action End -->
+</section>
+
+   <!-- HTML for Product Gallery -->
+   <section id="gallery" class="product-gallery">
+    <h2 class="section-title">Product Gallery</h2>
+    <p class="section-subtitle">
+      Explore our high-quality V-bottom paper pouches designed for various applications in food packaging.
+    </p>
+
+    <div class="filter-buttons">
+      <button class="active" data-filter="all">All Products</button>
+      <button data-filter="sweet mart">Sweet Mart</button>
+      <button data-filter="grape packaging">Grape Packaging</button>
+      <button data-filter="supermarket">Supermarket</button>
+      <button data-filter="custom printing">Custom Printing</button>
+    </div>
+
+    <div class="product-grid">
+      <div class="product-card" data-category="sweet mart">
+        <img src="prod.jpg" alt="Sweet Mart Pouch" />
+      </div>
+      <div class="product-card" data-category="grape packaging">
+        <img src="prod2.jpg" alt="Grape Packaging Pouch" />
+      </div>
+      <div class="product-card" data-category="sweet mart">
+        <img src="prod1.jpg" alt="Sweet Mart Pouch" />
+      </div>
+      <div class="product-card" data-category="grape packaging">
+        <img src="prod6.jpg" alt="Grape Packaging Pouch" />
+      </div>
+      <div class="product-card" data-category="supermarket">
+        <img src="prod4.jpg" alt="Supermarket Pouch" />
+      </div>
+      <div class="product-card" data-category="grape packaging">
+        <img src="prod5.jpg" alt="Grape Packaging Pouch" />
+      </div>
+      <div class="product-card" data-category="custom printing">
+        <img src="prod3.jpg" alt="Custom Printing Pouch" />
+      </div>
+      <div class="product-card" data-category="custom printing">
+        <img src="prod7.jpg" alt="Custom Printing Pouch" />
+      </div>
+    </div>
+
+    <div class="load-more">
+      <button class="load-more-btn">View More Products</button>
+    </div>
+  </section>
+
+<section id="cer" class=" bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold" style="color: #1e5631;">Paper Certification Details</h2>
+      <p class="text-muted fs-5">
+        Our paper materials are backed by internationally recognized certifications ensuring safety, sustainability, and compliance.
+      </p>
+    </div>
+
+    <!-- First Row (3 Cards) -->
+    <div class="row g-4 justify-content-center">
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body text-center">
+            <h5 class="card-title fw-bold text-success">FDA</h5>
+            <p class="card-text">Compliant with food safety standards approved by the U.S. Food and Drug Administration.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body text-center">
+            <h5 class="card-title fw-bold text-success">FSC Certificate</h5>
+            <p class="card-text">Certified by the Forest Stewardship Council for responsible forest management.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body text-center">
+            <h5 class="card-title fw-bold text-success">MSDS</h5>
+            <p class="card-text">Material Safety Data Sheet available, detailing safety and handling information.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Second Row (2 Cards, Centered) -->
+    <div class="row g-4 justify-content-center mt-1">
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body text-center">
+            <h5 class="card-title fw-bold text-success">Reach Declaration</h5>
+            <p class="card-text">Compliance with EU chemical safety regulations to protect human health and the environment.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body text-center">
+            <h5 class="card-title fw-bold text-success">ROHS Declaration</h5>
+            <p class="card-text">Restriction of Hazardous Substances compliance for electronics and packaging safety.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+  <section  id="contact" class="contact-section container">
+    <div class="text-center">
+    <h2 class="section-title text-center mb-4 fw-bold" >Contact Us</h2>
+
+
+</div>
+    <p class="section-description">
+      Get in touch with our team to discuss your V-bottom paper pouch requirements. We're here to provide high-quality packaging solutions for your business.
+    </p>
+  
+    <div class="contact-wrapper row">
+      <!-- Contact Form -->
+     
+        <div class="form-wrapper col-12 col-md-6 d-flex flex-column gap-4">
+            <h2 class="title">Get in Touch</h2>
+            <form id="contact-form" class="contact-form">
+                <div class="input-group">
+                    <input type="text" id="name" required>
+                    <label for="name"><i class="fas fa-user"></i> Your Name</label>
+                </div>
+                <div class="input-group">
+                    <input type="email" id="email" required>
+                    <label for="email"><i class="fas fa-envelope"></i> Your Email</label>
+                </div>
+                <div class="input-group">
+                    <input type="tel"  maxlength="10" id="phone" required>
+                    <label for="phone"><i class="fas fa-phone"></i> Phone Number</label>
+                </div>
+                <div class="input-group">
+                    <textarea id="message" rows="4" required></textarea>
+                    <label for="message"><i class="fas fa-comment"></i> Your Message</label>
+                </div>
+                <button type="submit" class="submit-btn">
+                    <span class="btn-text">Send Message</span>
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+                <div id="status-message" class="status-message"></div> <!-- ✅ This must be below the button -->
+            </form>
+            
+            <div id="status-message" class="status-message"></div>
+        </div>
+  
+  
+      <!-- Contact Info -->
+      <div class="contact-details col-12 col-md-6 d-flex flex-column gap-4">
+        <br>
+        <h3>Our Contact Information</h3>
+        <ul class="contact-info-list">
+          <li class="contact-info-item">
+            <div class="icon">📍</div>
+            <div class="text">
+              <strong>Our Location</strong><br>
+              Mohadi, Taluka Dindori, District Nashik, Maharashtra 
+            </div>
+          </li>
+          <li class="contact-info-item">
+            <div class="icon">📞</div>
+            <div class="text">
+              <strong>Phone Numbers</strong><br>
+               +91 9545114537<br>
+            
+             
+
+            </div>
+          </li>
+          <li class="contact-info-item">
+            <div class="icon">✉️</div>
+            <div class="text">
+              <strong>Email Addresses</strong><br>
+              sales@sspaper.co.in<br>
+             
+            </div>
+          </li>
+          <li class="contact-info-item">
+            <div class="icon">⏰</div>
+            <div class="text">
+              <strong>Business Hours</strong><br>
+              Mon-Fri: 9:00 AM - 6:00 PM<br>
+              Sun: 9:00 AM - 1:00 PM<br>
+              Sat: Closed
+            </div>
+          </li>
+        </ul>
+  
+      
+        
+      </div>
+    </div>
+  </section>
+  <footer class="footer-section">
+    <div class="footer-top">
+      <div class="footer-column">
+        <h3>V-Bottom Pouch Manufacturing</h3>
+        <p>Food-grade packaging solutions for supermarkets, sweet marts, fruit exports,bakery products, etc.</p>
+   
+      </div>
+      <div class="footer-column">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Products</a></li>
+          <li><a href="#">Certifications</a></li>
+          <li><a href="#">Gallery</a></li>
+          
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Our Products</h4>
+        <ul>
+          <li><a href="#">Sweet Mart Pouches</a></li>
+          <li><a href="#">Grape Export Packaging</a></li>
+          <li><a href="#">Supermarket Pouches</a></li>
+          <li><a href="#">Custom Printed Pouches</a></li>
+          <li><a href="#">Food Grade Packaging</a></li>
+          <li><a href="#">Eco-Friendly Options</a></li>
+          <li><a href="#"> Fruit exports</a></li>
+          <li><a href="#">Bakery products</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Contact Information</h4>
+        <p><i class="fas fa-map-marker-alt"></i>Mohadi, Taluka Dindori, District Nashik, Maharashtra </p>
+        <p><i class="fas fa-phone"></i> +91 9545114537</p>
+        <p><i class="fas fa-envelope"></i> sales@sspaper.co.in</p>
+        <p><i class="fas fa-clock"></i> Mon-Fri: 9AM - 6PM<br>Sat: 9AM - 1PM</p>
+      </div>
+    </div>
+  
+    <div class="footer-subscribe">
+      <h3>Subscribe to Our Newsletter</h3>
+      <p>Stay updated with our latest products, industry news, and special offers.</p>
+      <form>
+        <input type="email" placeholder="Your Email Address" />
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  
+   
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Sitemap</a>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2019 V-Bottom Paper Pouch Manufacturing. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script src="script.js"></script>
+      </body>
+      </html>
