@@ -51,22 +51,43 @@ document.addEventListener("DOMContentLoaded", function () {
 
         } catch (error) {
             console.error("Email send error:", error);
-            showMessage('Failed to send message. Please try again!', 'error');
+            showMessage('Failed to send message. ', 'error');
         } finally {
             resetButton();
         }
     });
-
     function showMessage(message, type) {
-        statusMessage.textContent = message;
-        statusMessage.className = `status-message ${type}`;
-        statusMessage.style.display = "flex"; // Show the message
-
-        // Hide message after 5 seconds
+        let icon = '';
+        let extraMessage = '';
+    
+        if (type === 'success') {
+            icon = '<i class="fas fa-check-circle"></i>';
+            extraMessage = '<p class="mb-0">We will contact you within <strong>24 hours</strong>.</p>';
+        } else if (type === 'error') {
+            icon = '<i class="fas fa-exclamation-circle"></i>';
+            extraMessage = `
+                <p class="mb-1">Please try again.</p>
+                <p class="mb-0">Or contact us at <strong>sales@sspaper.co.in</strong> / <strong>+91 9545114537</strong></p>
+            `;
+        }
+    
+        statusMessage.innerHTML = `
+            <div class="alert-box ${type}">
+                ${icon}
+                <div class="message-content">
+                    <p class="mb-1">${message}</p>
+                    ${extraMessage}
+                </div>
+            </div>
+        `;
+    
+        statusMessage.style.display = "block";
+    
         setTimeout(() => {
             statusMessage.style.display = "none";
-        }, 5000);
+        }, 8000);
     }
+    
 
     function resetButton() {
         submitBtn.innerHTML = '<span class="btn-text">Send Message</span><i class="fas fa-paper-plane"></i>';
@@ -97,3 +118,19 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  document.addEventListener("DOMContentLoaded", function () {
+    // Auto close navbar on link click (mobile)
+    const navLinks = document.querySelectorAll('.navbar-collapse .nav-link');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+    const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+        toggle: false
+    });
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth < 768) {
+                bsCollapse.hide();
+            }
+        });
+    });
+});
