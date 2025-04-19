@@ -14,48 +14,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <style>
-    @media (max-width: 480px) {
-      .navbar-toggler {
-        margin-right: 0; /* Remove extra margin */
-      }
-  
-      .container-fluid {
-        padding-left: 10px;
-        padding-right: 10px;
 
-      }
-     .navbar-collapse {
-       margin: 0;
-     }
-     #about{
-      padding: 0;
-     }
-     #product{
-      padding: 0;
-     }
-      .navbar-brand {
-        font-size: 1.2rem; /* Reduce font size if needed */
-      }
-      .navbar-toggler {
-  max-width: 100%;
-  margin-left: 2rem;
-  overflow: hidden;
-}
-#asd{
-  width: auto;
-}
-.navbar{
-  max-width: 480px;
-}
-.orl{
-  display: none;
-}
-.car{
-  height: 40vh;
-}
-    }
-  </style>
   <style>
     .carousel-inner img {
       object-fit: cover;
@@ -66,6 +25,9 @@
     @media (max-width: 480px) {
       .carousel-inner img {
         height: 250px; /* or adjust based on your design */
+      }
+      #car{
+        height: 80vh!important; /* Adjust height for smaller screens */
       }
     }
   </style>
@@ -170,9 +132,12 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
       
         <div class="container-fluid mx-3 "id="asd" >
           <a class="navbar-brand fs-4" style="  color:#3D6D4D ;" href="#">SS Enterprises</a>
-          <button  class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
           <div class="collapse navbar-collapse " id="navbarSupportedContent">
             <ul class="navbar-nav  mx-1 mb-lg-0">
               <li class="nav-item   mx-3 ">
@@ -203,7 +168,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
       </nav>
 
      
-      <div class="position-relative overflow-hidden car " style="height: 100vh;">
+      <div class="position-relative overflow-hidden  " style="height: 100vh;" id="car">
         <!-- Background Carousel -->
         <div id="productCarousel" class="carousel slide h-100 w-100 mt-5" data-bs-ride="carousel" data-bs-interval="3000">
           <div class="carousel-inner h-100">
@@ -746,7 +711,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     <div class="footer-top">
       <div class="footer-column">
         <h3>V-Bottom Pouch Manufacturing</h3>
-        <p>Food-grade packaging solutions for supermarkets, sweet marts, fruit exports,bakery products, etc.</p>
+        <p>Food-grade packaging solutions for supermarkets,<br> sweet marts, fruit exports,bakery products, etc.</p>
    
       </div>
       <div class="footer-column">
